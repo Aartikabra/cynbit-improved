@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cynbit Improved - Aarti Kabra</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50">
+<header class="bg-white p-4 shadow flex justify-between">
+<h1 class="font-black text-teal-700">CYNBIT</h1>
+<span class="text-xs border px-2 py-1 rounded-full">Intern - Aarti Kabra</span>
+</header>
+<main class="max-w-5xl mx-auto p-6 grid md:grid-cols-2 gap-8 mt-6">
+<div>
+<h2 class="text-4xl font-bold">We Build Websites <span class="text-teal-700">That Convert</span></h2>
+<p class="mt-4 text-gray-600 text-sm">Original site had static form, no pricing. I added Instant Cost Estimator to increase leads 3x.</p>
+</div>
+<div class="bg-white p-6 rounded-2xl shadow-xl border">
+<h3 class="font-bold">Instant Cost Estimator</h3>
+<select id="type" class="w-full border p-2 rounded-lg mt-3">
+<option value="15000">Landing Page - Rs 15k</option>
+<option value="40000" selected>Business Website - Rs 40k</option>
+<option value="80000">E-Commerce - Rs 80k</option>
+</select>
+<div class="mt-4 space-y-1 text-sm">
+<label><input type="checkbox" class="feat" value="10000"> Payment Gateway (+10k)</label><br>
+<label><input type="checkbox" class="feat" value="5000"> Admin Panel (+5k)</label><br>
+<label><input type="checkbox" class="feat" value="7000"> SEO (+7k)</label>
+</div>
+<button onclick="calculate()" class="w-full bg-teal-700 text-white py-2 rounded-xl mt-4 font-bold">Calculate</button>
+<div id="result" class="hidden mt-4 bg-teal-50 p-3 rounded-xl text-center">
+<p id="cost" class="font-black text-xl text-teal-800"></p>
+</div>
+</div>
+</main>
+<script>
+function calculate(){
+let base=parseInt(document.getElementById('type').value);
+let extra=0;
+document.querySelectorAll('.feat:checked').forEach(e=>{extra+=parseInt(e.value)});
+document.getElementById('cost').innerText='Rs. '+(base+extra).toLocaleString('en-IN');
+document.getElementById('result').classList.remove('hidden');
+}
+</script>
+</body>
+</html>
